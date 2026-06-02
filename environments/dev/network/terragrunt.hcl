@@ -10,5 +10,5 @@ inputs = {
   vpc_name    = "dev-vpc"
   subnet_name = "dev-subnet"
   cidr        = "10.129.0.0/20"
-  region      = "asia-south1"
+  region      = include.root.locals.region
 }
