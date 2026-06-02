@@ -15,3 +15,17 @@ provider "google" {
 }
 EOF
 }
+
+remote_state {
+  backend = "gcs"
+
+  generate = {
+    path      = "backend.tf"
+    if_exists = "overwrite"
+  }
+
+  config = {
+    bucket = "devops-lab-498208-tf-state"
+    prefix = "${path_relative_to_include()}"
+  }
+}
