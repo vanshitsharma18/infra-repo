@@ -17,3 +17,8 @@ variable "service_account_email" {
   description = "Service Account Email"
   type        = string
 }
+
+variable "service_account_id" {
+  description = "Full service account resource ID"
+  type        = string
+}

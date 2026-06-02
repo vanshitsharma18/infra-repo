@@ -16,5 +16,5 @@ inputs = {
     "vanshitsharma18/backend-repo"
   ]
 
-  service_account_email = "github-actions-sa@devops-lab-498208.iam.gserviceaccount.com"
+  service_account_id = "projects/devops-lab-498208/serviceAccounts/github-actions-sa@devops-lab-498208.iam.gserviceaccount.com"
 }

@@ -31,7 +31,7 @@ resource "google_iam_workload_identity_pool_provider" "github" {
 resource "google_service_account_iam_member" "github" {
   for_each = toset(var.github_repositories)
 
-  service_account_id = var.service_account_email
+  service_account_id = var.service_account_id
 
   role = "roles/iam.workloadIdentityUser"
 
