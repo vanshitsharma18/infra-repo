@@ -8,12 +8,12 @@ variable "provider_id" {
   type        = string
 }
 
-variable "github_repository" {
-  description = "GitHub repository in owner/repo format"
-  type        = string
+variable "github_repositories" {
+  description = "List of GitHub repositories allowed to authenticate"
+  type        = list(string)
 }
 
 variable "service_account_email" {
-  description = "Service account email"
+  description = "Service Account Email"
   type        = string
 }
