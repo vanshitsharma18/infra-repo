@@ -13,3 +13,8 @@ variable "image" {
 variable "service_account_email" {
   type = string
 }
+
+variable "container_port" {
+  type    = number
+  default = 8000
+}

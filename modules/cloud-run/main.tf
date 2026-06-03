@@ -14,7 +14,7 @@ resource "google_cloud_run_v2_service" "service" {
       image = var.image
 
       ports {
-        container_port = 8000
+        container_port = var.container_port
       }
 
       resources {
