@@ -14,6 +14,7 @@ inputs = {
   roles = [
     "roles/artifactregistry.writer",
     "roles/run.admin",
-    "roles/iam.serviceAccountUser"
+    "roles/iam.serviceAccountUser",
+    "roles/datastore.user"
   ]
 }
