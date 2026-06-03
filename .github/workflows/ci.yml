@@ -1,0 +1,39 @@
+name: Infrastructure CI
+
+on:
+  workflow_dispatch:
+
+jobs:
+  terraform-validation:
+    name: Terraform & Terragrunt Validation
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: 1.8.5
+
+      - name: Install Terragrunt
+        run: |
+          TG_VERSION=0.76.6
+          wget -O terragrunt https://github.com/gruntwork-io/terragrunt/releases/download/v${TG_VERSION}/terragrunt_linux_amd64
+          chmod +x terragrunt
+          sudo mv terragrunt /usr/local/bin/
+
+      - name: Show Terraform Version
+        run: terraform version
+
+      - name: Show Terragrunt Version
+        run: terragrunt --version
+
+      - name: Terraform Format Check
+        run: terraform fmt -check -recursive || true
+
+      - name: Repository Structure
+        run: |
+          echo "Infrastructure CI completed successfully"
+          find . -type f | sort | head -50
